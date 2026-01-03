@@ -1,0 +1,110 @@
+import { PresetConfig } from './types';
+
+export const presets: PresetConfig[] = [
+  {
+    id: 'k1-drawing',
+    title: 'K1 Blueprint',
+    src: '/assets/samples/K1_drawing.jpg',
+    clusteringMode: 'binary',
+    hierarchical: 'stacked',
+    filterSpeckle: 4,
+    colorPrecision: 6,
+    pathPrecision: 8,
+    layerDifference: 16,
+    mode: 'spline',
+    cornerThreshold: 60,
+    lengthThreshold: 4,
+    spliceThreshold: 45,
+    maxIterations: 10,
+    credit: '<a href="https://commons.wikimedia.org/">Wikimedia</a>'
+  },
+  {
+    id: 'cityscape',
+    title: 'Cityscape',
+    src: '/assets/samples/Cityscape Sunset_DFM3-01.jpg',
+    clusteringMode: 'color',
+    hierarchical: 'stacked',
+    filterSpeckle: 4,
+    colorPrecision: 8,
+    pathPrecision: 8,
+    layerDifference: 25,
+    mode: 'spline',
+    cornerThreshold: 60,
+    lengthThreshold: 4,
+    spliceThreshold: 45,
+    maxIterations: 10,
+    credit:
+      '<a href="https://www.vecteezy.com/free-vector/building">Building Vectors by Vecteezy</a>'
+  },
+  {
+    id: 'gum-tree',
+    title: 'Gum Tree',
+    src: '/assets/samples/Gum Tree Vector.jpg',
+    clusteringMode: 'color',
+    hierarchical: 'stacked',
+    filterSpeckle: 4,
+    colorPrecision: 8,
+    pathPrecision: 8,
+    layerDifference: 28,
+    mode: 'spline',
+    cornerThreshold: 60,
+    lengthThreshold: 4,
+    spliceThreshold: 45,
+    maxIterations: 10,
+    credit: '<a href="https://www.vecteezy.com/free-vector/nature">Nature Vectors by Vecteezy</a>'
+  },
+  {
+    id: 'dessert',
+    title: 'Dessert Poster',
+    src: '/assets/samples/vectorstock_31191940.png',
+    clusteringMode: 'color',
+    hierarchical: 'stacked',
+    filterSpeckle: 8,
+    colorPrecision: 7,
+    pathPrecision: 8,
+    layerDifference: 64,
+    mode: 'spline',
+    cornerThreshold: 60,
+    lengthThreshold: 4,
+    spliceThreshold: 45,
+    maxIterations: 10,
+    credit:
+      '<a href="https://www.vectorstock.com/royalty-free-vector/dessert-poster-design-with-chocolate-cake-mousses-vector-31191940">Vector image by VectorStock</a>'
+  },
+  {
+    id: 'dog-photo',
+    title: 'Dog Photo',
+    src: '/assets/samples/angel-luciano-LATYeZyw88c-unsplash-s.jpg',
+    clusteringMode: 'color',
+    hierarchical: 'stacked',
+    filterSpeckle: 10,
+    colorPrecision: 8,
+    pathPrecision: 8,
+    layerDifference: 48,
+    mode: 'spline',
+    cornerThreshold: 180,
+    lengthThreshold: 4,
+    spliceThreshold: 45,
+    maxIterations: 10,
+    credit:
+      '<span>Photo by <a href="https://unsplash.com/@roaming_angel?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Angel Luciano</a></span>'
+  },
+  {
+    id: 'tank-unit',
+    title: 'Pixel Tank',
+    src: '/assets/samples/tank-unit-preview.png',
+    clusteringMode: 'color',
+    hierarchical: 'stacked',
+    filterSpeckle: 0,
+    colorPrecision: 8,
+    pathPrecision: 8,
+    layerDifference: 0,
+    mode: 'none',
+    cornerThreshold: 180,
+    lengthThreshold: 4,
+    spliceThreshold: 45,
+    maxIterations: 10,
+    credit:
+      '<span>Artwork by <a href="https://opengameart.org/content/sideview-sci-fi-patreon-collection">Luis Zuno</a></span>'
+  }
+];
