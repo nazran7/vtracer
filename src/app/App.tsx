@@ -103,7 +103,36 @@ export default function App() {
     if (!svg) {
       return;
     }
-    const blob = new Blob([svg], { type: 'image/svg+xml' });
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(svg, 'image/svg+xml');
+    const svgElement = doc.documentElement;
+    const canvas = canvasRef.current;
+    if (canvas && canvas.width > 0 && canvas.height > 0) {
+      const dataUrl = canvas.toDataURL('image/png');
+      const imageElement = doc.createElementNS('http://www.w3.org/2000/svg', 'image');
+      imageElement.setAttribute('x', '0');
+      imageElement.setAttribute('y', '0');
+      imageElement.setAttribute('width', String(canvas.width));
+      imageElement.setAttribute('height', String(canvas.height));
+      imageElement.setAttribute('preserveAspectRatio', 'none');
+      imageElement.setAttribute('href', dataUrl);
+      imageElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', dataUrl);
+      if (!svgElement.getAttribute('width')) {
+        svgElement.setAttribute('width', String(canvas.width));
+      }
+      if (!svgElement.getAttribute('height')) {
+        svgElement.setAttribute('height', String(canvas.height));
+      }
+      if (!svgElement.getAttribute('viewBox')) {
+        svgElement.setAttribute('viewBox', `0 0 ${canvas.width} ${canvas.height}`);
+      }
+      svgElement.insertBefore(imageElement, svgElement.firstChild);
+    }
+
+    const serializer = new XMLSerializer();
+    const serialized = serializer.serializeToString(svgElement);
+    const exportSvg = `<?xml version="1.0" encoding="UTF-8"?>\n${serialized}`;
+    const blob = new Blob([exportSvg], { type: 'image/svg+xml' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
